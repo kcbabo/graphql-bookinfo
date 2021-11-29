@@ -42,7 +42,7 @@ spec:
         namespace: gloo-system
   - matcher:
       fieldMatcher:
-        field: reviews
+        field: review
         type: Product
     restResolver:
       requestTransform:
@@ -88,8 +88,12 @@ spec:
       author: String
       pages: Int
       year: Int
-      reviews: Review
+      review: ProductReview
       ratings: [Rating]
+    }
+
+    type ProductReview {
+      reviews : [Review]
     }
 
     type Review {
