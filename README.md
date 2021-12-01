@@ -17,9 +17,10 @@ kubectl apply -f kubernetes/bookinfo-vs.yaml
 
 # Port forward the gateway endpoint
 kubectl port-forward -n gloo-system deploy/gateway-proxy 8080
-```
+
 # Query the GraphQL service
 curl -d "@etc/query.json" http://localhost:8080/graphql
+```
 
 Or point your favorite GraphQL client at the following URL and have fun!
 
