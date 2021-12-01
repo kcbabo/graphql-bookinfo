@@ -24,7 +24,7 @@ spec:
         namespace: gloo-system
   - matcher:
       fieldMatcher:
-        field: author
+        field: detail
         type: Product
     restResolver:
       requestTransform:
@@ -85,11 +85,16 @@ spec:
       id: String
       title: String
       descriptionHtml: String
+      detail : ProductDetail
+      review: ProductReview
+      ratings: [Rating]
+    }
+
+    type ProductDetail {
+      id: String
       author: String
       pages: Int
       year: Int
-      review: ProductReview
-      ratings: [Rating]
     }
 
     type ProductReview {
