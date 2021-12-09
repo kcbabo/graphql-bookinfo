@@ -60,7 +60,7 @@ spec:
         namespace: gloo-system
   - matcher:
       fieldMatcher:
-        field: ratings
+        field: rating
         type: Product
     restResolver:
       requestTransform:
@@ -87,7 +87,7 @@ spec:
       descriptionHtml: String
       detail : ProductDetail
       review: ProductReview
-      ratings: [Rating]
+      rating: ProductRating
     }
 
     type ProductDetail {
@@ -101,13 +101,17 @@ spec:
       reviews : [Review]
     }
 
-    type Review {
-      reviewer: String
-      text: String
+    type ProductRating {
+      ratings : Rating
     }
 
     type Rating {
+      Reviewer1 : String
+      Reviewer2 : String
+    }
+
+    type Review {
       reviewer: String
-      numStars: Int
+      text: String
     }
     "
