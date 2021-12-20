@@ -66,7 +66,10 @@ spec:
             :method: GET
             :path: /ratings/{$parent.id}
         response:
-          resultRoot: "ratings"
+          resultRoot: "ratings[*]"
+          setters:
+            reviewer: "[*][0]"
+            numStars: "[*][1]"
         upstreamRef:
           name: default-ratings-9080
           namespace: gloo-system
@@ -83,7 +86,7 @@ spec:
       pages: Int @resolve(name: "pages")
       year: Int @resolve(name: "year")
       reviews : [Review] @resolve(name: "reviews")
-      ratings : Rating @resolve(name: "ratings")
+      ratings : [Rating] @resolve(name: "ratings")
     }
 
     type Review {
@@ -92,6 +95,6 @@ spec:
     }
 
     type Rating {
-      Reviewer1 : String
-      Reviewer2 : String
+      reviewer : String
+      numStars : Int
     }
