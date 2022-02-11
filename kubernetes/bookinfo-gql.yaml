@@ -76,7 +76,7 @@ spec:
               upstreamRef:
                 name: default-ratings-9080
                 namespace: gloo-system
-    schema_definition: |
+    schemaDefinition: |
       type Query {
         productsForHome: [Product] @resolve(name: "Query|productsForHome")
       }
